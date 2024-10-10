@@ -95,6 +95,15 @@ services:
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - marketplace_connector
+    mockoon:
+        image: mockoon/cli:latest
+        volumes:
+            - './.docker/mockoon/mocketplace.json:/data:ro'
+        ports:
+            - '3000:3000'
+        command: ["-d", "data", "-p", "3000"]
+        networks:
+            - marketplace_connector
 networks:
     marketplace_connector:
         driver: bridge
