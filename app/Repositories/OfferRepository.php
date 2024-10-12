@@ -2,65 +2,41 @@
 
 namespace App\Repositories;
 
+use App\Entities\OfferEntity;
+use App\Models\Offer;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
-use Illuminate\Support\Facades\Http;
 
 class OfferRepository implements OfferRepositoryInterface
 {
-    protected $baseUrl;
+    public function __construct(
+        private readonly Offer $model,
+    ) {}
 
-    protected $headers;
-
-    public function __construct()
+    public function persist(OfferEntity $entity): void
     {
-        $this->baseUrl = config('offers.marketplace.url');
-        $this->headers = [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-        ];
+        $this->model->updateOrCreate(
+            ['id' => $entity->id],
+            [
+                'title' => $entity->title,
+                'description' => $entity->description,
+                'status' => $entity->status,
+                'stock' => $entity->stock,
+            ]
+        );
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function getOffers(): ?string
+    public function find(int $offerId): ?OfferEntity
     {
-        $response = Http::withHeaders($this->headers)->get("{$this->baseUrl}/offers");
+        $data = $this->model
+            ->with('prices', 'images')
+            ->find($offerId);
 
-        return $response->body();
+        if (empty($data)) {
+            return null;
+        }
 
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOfferByReference(string $reference): array
-    {
-        $response = Http::withHeaders($this->headers)
-            ->get("{$this->baseUrl}/offers/{$reference}");
-
-        return $response->json();
-
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOfferImages(string $reference): array
-    {
-        $response = Http::withHeaders($this->headers)->get("{$this->baseUrl}/offers/{$reference}/images");
-
-        return $response->json();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOfferPrices(string $reference): array
-    {
-        $response = Http::withHeaders($this->headers)
-            ->get("{$this->baseUrl}/offers/{$reference}/prices");
-
-        return $response->json();
+        return OfferEntity::hydrate(
+            (object) $data->toArray()
+        );
     }
 }
