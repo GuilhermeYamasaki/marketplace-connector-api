@@ -3,19 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\GetOffersEvent;
-use App\Events\RequestOffersEvent;
 use App\Jobs\GetOffersJob;
 
 class GetOffersListener
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      */
