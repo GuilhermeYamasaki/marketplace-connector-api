@@ -13,4 +13,14 @@ interface OfferUseCaseInterface
      * Get offers.
      */
     public function getOffers(): void;
+
+    /**
+     * Export all offers.
+     */
+    public function requestExport(int $offerId): void;
+
+    /**
+     * Export all offers.
+     */
+    public function export(int $offerId): void;
 }
