@@ -2,19 +2,19 @@
 
 namespace App\Providers\Services;
 
-use App\Services\Interfaces\OfferServiceInterface;
-use App\Services\OfferService;
+use App\Services\Interfaces\MarketplaceServiceInterface;
+use App\Services\MarketplaceService;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class OfferServiceProvider extends ServiceProvider implements DeferrableProvider
+class MarketplaceServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        $this->app->bind(OfferServiceInterface::class, OfferService::class);
+        $this->app->bind(MarketplaceServiceInterface::class, MarketplaceService::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class OfferServiceProvider extends ServiceProvider implements DeferrableProvider
     public function provides()
     {
         return [
-            OfferServiceInterface::class,
+            MarketplaceServiceInterface::class,
         ];
     }
 }

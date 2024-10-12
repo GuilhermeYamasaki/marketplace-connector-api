@@ -2,19 +2,19 @@
 
 namespace App\Services;
 
-use App\Services\Interfaces\OfferServiceInterface;
+use App\Services\Interfaces\MarketplaceServiceInterface;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
-class OfferService implements OfferServiceInterface
+class MarketplaceService implements MarketplaceServiceInterface
 {
-    private $client;
+    private PendingRequest $client;
 
     public function __construct()
     {
-        $this->client = Http::baseUrl(config('offers.marketplace.url'))
+        $this->client = Http::baseUrl(config('marketplace.url'))
             ->asJson()
             ->acceptJson();
-
     }
 
     /**
