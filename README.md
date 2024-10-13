@@ -10,7 +10,7 @@
 
 ## Descrição do projeto
 O Marketplace Connector é um sistema que integra a API de um marketplace com a de um HUB, facilitando a importação de anúncios. 
-A arquitetura segue os princípios da Clean Architecture, assegurando a separação clara entre as camadas, o que torna o sistema mais fácil de manter e escalável.
+O projeto segue os princípios da Clean Architecture, assegurando a separação clara entre as camadas, o que torna o sistema mais fácil de manter e escalável.
 O design pattern State é utilizado para gerenciar as transições de estado dos anúncios durante a importação e exportação, enquanto eventos e listeners organizam a execução dos jobs, mantendo os fluxos desacoplados e expansíveis.
 
 
