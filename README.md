@@ -8,7 +8,15 @@
 - [PHP 8.3](https://www.php.net/releases/8.3/en.php)
 - [Sentry](https://sentry.io/welcome/)
 
-## Iniciando
+## Descrição do projeto
+O Marketplace Connector é um sistema que integra a API de um marketplace com a de um HUB, facilitando a importação de anúncios. 
+A arquitetura segue os princípios da Clean Architecture, assegurando a separação clara entre as camadas, o que torna o sistema mais fácil de manter e escalável.
+O design pattern State é utilizado para gerenciar as transições de estado dos anúncios durante a importação e exportação, enquanto eventos e listeners organizam a execução dos jobs, mantendo os fluxos desacoplados e expansíveis.
+
+## Postman - Rotas
+- [Postman](https://www.postman.com/docking-module-cosmologist-72562827/marketplace-connector/overview) : Acesse o postman localmente para testar os endpoints
+
+## Iniciando o projeto
 
 Clonar o repositório
 
@@ -70,7 +78,8 @@ Abrir um terminal e deixar executando
 sail artisan horizon
 ```
 
-Observalidade:
+## Observalidade
+
 - [Telescope](http://localhost:8000/telescope) : Acesse o Telescope para monitorar suas requisições e variáveis de ambiente
 - [Horizon](http://localhost:8000/horizon) : Use o Horizon para visualizar e gerenciar suas filas de trabalho.
 - [Sentry](https://sentry.io/welcome/) : Para integrar o Sentry, siga os passos abaixo:
