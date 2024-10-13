@@ -49,7 +49,10 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
     }
 
     /**
-     * Request in API Offer and transform entity
+     * Retrieves offer details from the marketplace API and converts them into an OfferEntity.
+     *
+     * @param  int  $offerId  The unique identifier of the offer to fetch.
+     * @return OfferEntity The hydrated entity containing the offer details.
      */
     private function getDetails(int $offerId): OfferEntity
     {
@@ -61,7 +64,10 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
     }
 
     /**
-     * Request in API Offer and make collection of entity
+     * Retrieves offer images from the marketplace API and returns them as a collection of entities.
+     *
+     * @param  int  $offerId  The unique identifier of the offer whose images are to be fetched.
+     * @return Collection A collection of OfferImageEntity instances representing the offer's images.
      */
     private function getImages(int $offerId): Collection
     {
@@ -77,7 +83,10 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
     }
 
     /**
-     * Request in API Offer and make collection of entity
+     * Retrieves the offer price from the marketplace API and converts it into an OfferPriceEntity.
+     *
+     * @param  int  $offerId  The unique identifier of the offer whose price is to be fetched.
+     * @return OfferPriceEntity The entity containing the offer price information.
      */
     private function getPrices(int $offerId): OfferPriceEntity
     {

@@ -12,6 +12,9 @@ class OfferRepository implements OfferRepositoryInterface
         private readonly Offer $model,
     ) {}
 
+    /**
+     * {@inheritDoc}
+     */
     public function persist(OfferEntity $entity): void
     {
         $this->model->updateOrCreate(
@@ -25,6 +28,9 @@ class OfferRepository implements OfferRepositoryInterface
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function find(int $offerId): ?OfferEntity
     {
         $data = $this->model
