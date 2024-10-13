@@ -71,8 +71,8 @@ sail artisan horizon
 ```
 
 Observalidade:
-- [Telescope](https://localhost:8000/telescope) : Acesse o Telescope para monitorar suas requisições e variáveis de ambiente
-- [Horizon](https://localhost:8000/horizon) : Use o Horizon para visualizar e gerenciar suas filas de trabalho.
+- [Telescope](http://localhost:8000/telescope) : Acesse o Telescope para monitorar suas requisições e variáveis de ambiente
+- [Horizon](http://localhost:8000/horizon) : Use o Horizon para visualizar e gerenciar suas filas de trabalho.
 - [Sentry](https://sentry.io/welcome/) : Para integrar o Sentry, siga os passos abaixo:
 
     Abra o arquivo `.env` e preencha o campo `SENTRY_LARAVEL_DSN` com seu DSN do Sentry:
