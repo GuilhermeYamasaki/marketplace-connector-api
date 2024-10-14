@@ -60,16 +60,16 @@ Adicionar alias do Sail
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 ```
 
-Baixar dependencias do NPM
-
-```bash
-sail npm i
-```
-
 Construir container
 
 ```bash
 sail up -d
+```
+
+Baixar dependencias do NPM
+
+```bash
+sail npm i
 ```
 
 Gerar chave criptografada
